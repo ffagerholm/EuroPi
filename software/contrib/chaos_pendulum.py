@@ -1,13 +1,7 @@
-"""Get sequencer based on a elementary cellular automaton.
-https://en.wikipedia.org/wiki/Elementary_cellular_automaton
+"""Produce chaotic modulation based on a simulation of a double pendulum system.
+https://en.wikipedia.org/wiki/Double_pendulum
 
-The state of the automaton is updated on every trigger on the digital input.
-The updates are made according to the rules as described here 
-
-The rules are numbered accoding to the Wolfram code scheme.
-There are 256 elementary cellular automata, all with a slightly different
-behavior. Some automata doesn't do anything, while some exhibit looping behavior,
-and some generate very complex patterns.
+Based on the code in https://matplotlib.org/stable/gallery/animation/double_pendulum.html
 """
 # pylint:disable=import-error,invalid-name
 from random import random
@@ -18,8 +12,8 @@ from time import sleep_ms
 from europi import OLED_WIDTH, OLED_HEIGHT, ain, b1, b2, cvs, din, k1, k2, oled
 from europi_script import EuroPiScript
 
-
-G = 9.8  # acceleration due to gravity, in m/s^2
+# gravity of Earth in m/s^2
+G = 9.8
 
 
 class ChaosPendulum:
@@ -67,6 +61,22 @@ class ChaosPendulum:
         self.set_state([theta_1, omega_1, theta_2, omega_2])
     
     def derivs(self, state):
+        """Compute the time derivatives of the system state.
+
+        TODO check that this is correct.
+        
+        Parameters
+        ----------
+        state : list
+            State vector of the system. Should contain
+            the current angles and angular velocities of
+            the pedulums.
+        
+        Returns
+        -------
+        dydx : list
+            Derivatives w.r.t of the state vector.
+        """
         dydx = list(state)
         dydx[0] = state[1]
         delta = state[2] - state[0]
@@ -96,6 +106,7 @@ class ChaosPendulum:
         y = self.state
         y_d = self.derivs(y)
         y = [a + b*self.dt for a, b in zip(y, y_d)]
+        # TODO Turn thetas into values in the range [-1, 1]
         t1 = (y[0] % (2*pi)) / (2*pi)
         x1 = self.l1*sin(y[0])
         y1 = -self.l1*cos(y[0])
