@@ -5,6 +5,12 @@ directory, specifically [the section on contrib scripts](/contributing.md#contri
 
 # List of packaged scripts
 
+### Arpeggiator \[ [documentation](/software/contrib/arp.md) | [script](/software/contrib/arp.py) \]
+A quantized scale/arpeggio generator
+
+<i>Author: [chrisib](https://github.com/chrisib)</i>
+<br><i>Labels: quantizer, scale, arpeggio</i>
+
 ### Bernoulli Gates \[ [documentation](/software/contrib/bernoulli_gates.md) | [script](/software/contrib/bernoulli_gates.py) \]
 A probability script based on Mutable Instruments Branches
 
@@ -12,6 +18,18 @@ Two channels of probability-based routing, where the digital input will be route
 
 <i>Author: [Bridgee](https://github.com/Bridgee)</i>
 <br><i>Labels: Random</i>
+
+### Bezier Curves \[ [documentation](/software/contrib/bezier.md) | [script](/software/contrib/bezier.py) \]
+Smooth random voltages based on bezier curves. Inspired by the ADDAC507 Random Bezier Waves module.
+
+<i>Author: [chrisib](https://github.com/chrisib)</i>
+<br><i>Labels: Random</i>
+
+### Clock Modifier \[ [documentation](/software/contrib/clock_mod.md) | [script](/software/contrib/clock_mod.md) \]
+A clock multiplier or divider. Each channel has an independently-controllable modifier, multiplying or dividing an external clock signal on `din`.
+
+<i>Author: [chrisib](https://github.com/chrisib)</i>
+<br><i>Labels: clock, clock multiplier, clock divider, gates</i>
 
 ### Consequencer \[ [documentation](/software/contrib/consequencer.md) | [script](/software/contrib/consequencer.md) \]
 A gate and CV sequencer inspired by Mutable Instruments Grids and the Music Thing Modular Turing Machine
@@ -21,6 +39,12 @@ Users can morph between patterns and CV sequences during operation, with 3 gate 
 <i>Author: [gamecat69](https://github.com/gamecat69)</i>
 <br><i>Labels: sequencer, gates, triggers, drums, randomness</i>
 
+### Conway \[ [documentation](/software/contrib/conway.md) | [script](/software/contrib/conway.md) \]
+A semi-random LFO that uses [John Conway's Game Of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) to produce CV and gate signals.
+
+<i>Author: [chrisib](https://github.com/chrisib)</i>
+<br><i>Labels: lfo, gates, randomness</i>
+
 ### CVecorder \[ [documentation](/software/contrib/cvecorder.md) | [script](/software/contrib/cvecorder.py) \]
 6 channels of control voltage recording
 
@@ -29,6 +53,12 @@ Recording of CV can be primed so that you can record a movement without missing 
 
 <i>Author: [anselln](https://github.com/anselln)</i>
 <br><i>Labels: sequencer, CV, performance</i>
+
+### Egressus Melodium \[ [documentation](/software/contrib/egressus_melodiam.md) | [script](/software/contrib/egressus_melodiam.py) \]
+Clockable and free-running LFO and random CV pattern generator
+
+<i>Author: [gamecat69](https://github.com/gamecat69)</i>
+<br><i>Labels: clocked lfo, sequencer, CV, randomness</i>
 
 ### Envelope Generator \[ [documentation](/software/contrib/envelope_generator.md) | [script](/software/contrib/envelope_generator.py) \]
 An attack release envelope with optional sustain and looping functionality.
@@ -42,6 +72,19 @@ Euclidean rhythm generator. Each channel can generate an independent euclidean r
 
 <i>Author: [chrisib](https://github.com/chrisib)</i>
 <br><i>Labels: sequencer, gates, triggers, euclidean</i>
+
+### Gates and Triggers \[ [documentation](/software/contrib/gates_and_triggers.md) | [script](/software/contrib/gates_and_triggers.py) \]
+Convert incoming triggers to gates or gates to triggers.  Buttons allow manually creating gates/triggers, knobs control
+the duration of the output signals.
+
+<i>Author: [chrisib](https://github.com/chrisib)</i>
+<br><i>Labels: gates, triggers</i>
+
+### Gate Phaser \[ [documentation](/software/contrib/gate_phaser.md) | [script](/software/contrib/gate_phaser.py) \]
+A script which attempts to answer the question "What would Steve Reich do if he had a EuroPi?"
+
+<i>Author: [gamecat69](https://github.com/gamecat69)</i>
+<br><i>Labels: sequencer, gates</i>
 
 ### Hamlet \[ [documentation](/software/contrib/hamlet.md) | [script](/software/contrib/hamlet.py) \]
 A variation of the Consequencer script specifically geared towards driving voices
@@ -75,6 +118,15 @@ Treats both inputs as digital on/off signals and outputs the results of binary A
 
 <i>Author: [chrisib](https://github.com/chrisib)</i>
 <br><i>Labels: logic, gates, binary operators</i>
+
+### Lutra \[ [documentation](/software/contrib/lutra.md) | [script](/software/contrib/lutra.py) \]
+
+Six syncable LFOs with variable wave shapes. The clock speed of each LFO is slightly different, with an adjustable base speed and CV-controllable spread.
+
+Inspired by [Expert Sleepers' Otterley](https://expert-sleepers.co.uk/otterley.html) module.
+
+<i>Author: [chrisib](https://github.com/chrisib)</i>
+<br><i>Labels: lfo</i>
 
 ### Noddy Holder \[ [documentation](/software/contrib/noddy_holder.md) | [script](/software/contrib/noddy_holder.py) \]
 Two channels of sample/track and hold based on a single trigger and CV source
@@ -148,6 +200,18 @@ A 2-6 output sequential switch.  The analogue input is mirrored to one of the ou
 <i>Author: [chrisib](https://github.com/chrisib)</i>
 <br><i>Labels: random, sequential switch</i>
 
+### Sigma \[ [documentation](/software/contrib/sigma.md) | [script](/software/contrib/sigma.py) \]
+Random CV, optionally quantized, voltages based on controllable normal distributions. Inspired by Magnetic Freak's Gaussian module.
+
+<i>Author: [chrisib](https://github.com/chrisib)</i>
+<br><i>Labels: random, quantizer</i>
+
+### Sigma \[ [documentation](/software/contrib/slopes.md) | [script](/software/contrib/slopes.py) \]
+CV analyzer that produces gates & CV outputs based on the slope of the incoming signal
+
+<i>Author: [chrisib](https://github.com/chrisib)</i>
+<br><i>Labels: gates, CV</i>
+
 ### Smooth Random Voltages \[ [script](/software/contrib/smooth_random_voltages.py) \]
 Random CV with adjustable slew rate, inspired by: https://youtu.be/tupkx3q7Dyw.
 
@@ -165,12 +229,29 @@ Users have the x, y, and z values of the output of each attractor model availabl
 <i>Author: [seanbechhofer](https://github.com/seanbechhofer)</i>
 <br><i>Labels: gates, triggers, randomness</i>
 
+### Traffic \[ [documentation](/software/contrib/traffic.md) | [script](/software/contrib/traffic.py) \]
+A re-imagining of [Jasmine and Olive Tree's Traffic](https://jasmineandolivetrees.com/products/traffic) module. Triggers are sent to both inputs
+generating CV signals based on which trigger fired most recently and a pair of gains per channel.
+
+<i>Author: [chrisib](http://github.com/chrisib)</i>
+<br><i>Labels: sequencer, gate, triggers</i>
+
 ### Turing Machine \[ [documentation](/software/contrib/turing_machine.md) | [script](/software/contrib/turing_machine.py) \]
 A script meant to recreate the [Music Thing Modular Turning Machine Random Sequencer](https://musicthing.co.uk/pages/turing.html)
 as faithfully as possible on the EuroPi hardware.
 
 <i>Author: [mjaskula](https://github.com/mjaskula)</i>
 <br><i>Labels: sequencer, random, triggers</i>
+
+### Volts \[ [documentation](/software/contrib/volts.md) | [script](/software/contrib/volts.py) \]
+Generates static voltages on CV1-6. Useful for when you need a reliable, fixed voltage source as an input. Some useful applications include:
+- transposing a sequencer
+- shifting a bipolar LFO or VCO to be unipolar
+- sending a fixed voltage to a VCA to amplify a signal to a fixed level
+- calibrating other modules
+
+<i>Author: [chrisib](http://github.com/chrisib)</i>
+<br><i>Labels: cv, voltages, non-interactive</i>
 
 ---
 

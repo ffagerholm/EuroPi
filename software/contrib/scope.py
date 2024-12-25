@@ -1,3 +1,4 @@
+import math
 from time import sleep
 
 from europi_script import EuroPiScript
@@ -48,7 +49,7 @@ class Scope(EuroPiScript):
 
     knob1 - samples per screen refresh. This effectively lets you 'zoom in' on the x-axis. Start at the lowest setting, 1 sample.
     knob2 - y voltage scale (only affects analog wave). This effectively lets you 'zoom in' on the low voltages. Start at
-    the highest setting, 12v.
+    the highest setting, 10v.
 
     button1 - toggle digital wave display
     button2 - toggle analog wave display
@@ -74,7 +75,7 @@ class Scope(EuroPiScript):
 
     @staticmethod
     def read_max_disp_voltage():
-        return k2.read_position(MAX_INPUT_VOLTAGE) + 1
+        return k2.read_position(math.ceil(MAX_INPUT_VOLTAGE)) + 1
 
     @staticmethod
     def calc_y_pos(max_disp_voltage, a_voltage):

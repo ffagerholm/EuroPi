@@ -4,7 +4,16 @@ from machine import I2C
 from machine import Pin
 from ssd1306 import SSD1306_I2C
 
-from europi import OLED_WIDTH, I2C_FREQUENCY, OLED_HEIGHT, I2C_CHANNEL, TEST_ENV, CHAR_HEIGHT
+from europi import (
+    OLED_WIDTH,
+    OLED_I2C_FREQUENCY,
+    OLED_HEIGHT,
+    OLED_I2C_SDA,
+    OLED_I2C_SCL,
+    OLED_I2C_CHANNEL,
+    TEST_ENV,
+    CHAR_HEIGHT,
+)
 from europi import Display as BasicDisplay
 
 
@@ -70,7 +79,7 @@ class CustomFontDisplay(BasicDisplay):
     def __init__(self, default_font=None):  # by default will use the monospaced 8x8 font
         self.writers = {}  # re-usable large font writer instances
         self.default_font = default_font
-        super().__init__(0, 1)
+        super().__init__(OLED_I2C_SDA, OLED_I2C_SCL, channel=OLED_I2C_CHANNEL)
 
     def _writer(self, font):
         """Returns the large font writer for the specified font."""
@@ -107,7 +116,7 @@ class CustomFontDisplay(BasicDisplay):
         else:
             super().text(s, x, y, c)
 
-    def centre_text(self, text, font=None):
+    def centre_text(self, text, clear_first=True, auto_show=True, font=None):
         """Split the provided text across 3 lines of display."""
 
         # Default font is 8x8 pixel monospaced font which can be split to a
@@ -117,7 +126,8 @@ class CustomFontDisplay(BasicDisplay):
         if font or self.default_font:
             # f = font or self.default_font
 
-            self.fill(0)
+            if clear_first:
+                self.fill(0)
 
             lines = str(text).split("\n")
             maximum_lines = self.height // self.text_height(font=font)
@@ -134,9 +144,10 @@ class CustomFontDisplay(BasicDisplay):
                 self.text(content, x_offset, y_offset, font=font)
 
         else:
-            super().centre_text(text)
+            super().centre_text(text, clear_first=clear_first, auto_show=auto_show)
 
-        self.show()
+        if auto_show:
+            self.show()
 
 
 oled = CustomFontDisplay()
